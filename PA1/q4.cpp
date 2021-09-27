@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     char num[32], rev[32];
-    int length;
+    int length, flag = 0;
     cout << "Enter a number: ";
     cin >> num;
     length = strlen(num);
@@ -18,12 +18,26 @@ int main()
             return 1;
         }
     }
-    for(int i = 1; i < length; i++)
+    for(int i = 1; i < length + 1; i++)
     {
         
         rev[i-1] = num[length-i];
         
     }
+    cout << num << endl;
+    cout << rev << endl;
+
+    
+    for(int i = 0; i < length; i++)
+    {
+        if(num[i] != rev[i]) 
+        {
+            flag++;
+            break;
+        }
+    }
+    if(flag > 0) cout << "The number " << num << " is not a palindrome" << endl;
+    else cout << "The number " << num << " is a palindrome" << endl;
     // if (rev == num) cout << "The number " << num << " is a palindrome" << endl;
     // else cout << "The number " << num << " is not a palindrome" << endl;
 
