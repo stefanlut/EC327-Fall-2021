@@ -27,6 +27,7 @@ int main()
     }
     inputCoordinates[a] = '\0';
     cout<< "The coordinates are: " << inputCoordinates << endl;
+    
     //Need to subtract 48 from all coordinates because casting chars as ints will convert them to ASCII values
     pairOne[0] =(int) inputCoordinates[0] - 48;
     pairOne[1] =(int) inputCoordinates[2] - 48;
