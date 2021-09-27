@@ -1,12 +1,15 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-
+/*
+Might have to reference concepts from this website:
+https://www.permadi.com/tutorial/numDecToHex/
+*/
 int main()
 {
     int num1,num2;
     char hex1[32],hex2[32]; //32 character buffers, because why would you write numbers larger than that
-    cout << "Enter two positive integers that are the same length" << endl;
+    cout << "Enter two positive integers: " ;
     cin >> num1;
     cin >> num2;
     sprintf(hex1,"%X", num1);
@@ -30,7 +33,7 @@ int main()
         
         counter++;
     }
-    cout << "The hamming distance between " << num1 << " and " << num2 <<" in hex is: " << hammingDistance << endl;
+    cout << "The hamming distance between " << num1 << " and " << num2 <<" in hex format is: " << hammingDistance << endl;
     
     return 0;
 }
