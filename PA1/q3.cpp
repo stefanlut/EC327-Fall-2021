@@ -1,9 +1,10 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-/*
+/* Q3
 Might have to reference concepts from this website:
 https://www.permadi.com/tutorial/numDecToHex/
+    - Stefan Lütschg
 */
 int main()
 {

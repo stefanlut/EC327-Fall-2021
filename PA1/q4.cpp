@@ -2,7 +2,7 @@
 #include <cstring>
 
 using namespace std;
-
+// Q4 - Stefan Lütschg
 int main()
 {
     char num[32], rev[32];

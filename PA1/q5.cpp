@@ -1,12 +1,12 @@
 #include <iostream>
 
 using namespace std;
-
+// Q5 - Stefan Lütschg
 int main()
 {
     char inputChar, newChar;
     int offsetNum,tempNum;
-    
+
     cout << "Enter character: ";
     cin >> inputChar;
     cout << "Offset (enter 0 to convert case): ";

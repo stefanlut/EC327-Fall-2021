@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Q2 - Stefan Lütschg
 int main()
 {
     /* Declaring Variables */

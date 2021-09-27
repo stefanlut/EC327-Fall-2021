@@ -6,6 +6,7 @@ using namespace std;
 /* Referencing content found in
  https://www.geeksforgeeks.org/minimum-distance-from-a-point-to-the-line-segment-using-vectors/
 
+    Q1 - Stefan Lütschg
 */
 
 int main()
