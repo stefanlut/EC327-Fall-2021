@@ -24,10 +24,6 @@ int main()
         rev[i-1] = num[length-i];
         
     }
-    cout << num << endl;
-    cout << rev << endl;
-
-    
     for(int i = 0; i < length; i++)
     {
         if(num[i] != rev[i]) 
