@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
+#define ASCII_OFFSET 48
 
 using namespace std;
 /* Referencing content found in
@@ -20,7 +21,8 @@ int main()
 
     cout << "Enter three x,y coordinates:"<< endl;
     a = 0;
-    while((ch=getchar()) != '\n')
+    // Using another method for input because cin ignores whitespaces and is a PITA
+    while((ch=getchar()) != '\n') 
     {
         inputCoordinates[a] = ch;
         a++;
@@ -29,17 +31,22 @@ int main()
     inputCoordinates[a] = '\0';
     cout<< "The coordinates are: " << inputCoordinates << endl;
     
-    //Need to subtract 48 from all coordinates because casting chars as ints will convert them to ASCII values
-    pairOne[0] =(int) inputCoordinates[0] - 48;
-    pairOne[1] =(int) inputCoordinates[2] - 48;
+    /*
+    Need to subtract 48 from all coordinates,
+    because casting chars as ints will convert them to ASCII values.
+    Thus, need to take out the ASCII offset
+    */
+    
+    pairOne[0] =(int) inputCoordinates[0] - ASCII_OFFSET;
+    pairOne[1] =(int) inputCoordinates[2] - ASCII_OFFSET;
 
-    pairTwo[0] =(int) inputCoordinates[4] - 48;
-    pairTwo[1] =(int) inputCoordinates[6] - 48;
+    pairTwo[0] =(int) inputCoordinates[4] - ASCII_OFFSET;
+    pairTwo[1] =(int) inputCoordinates[6] - ASCII_OFFSET;
 
-    pairThree[0] =(int) inputCoordinates[8] - 48;
-    pairThree[1] =(int) inputCoordinates[10] - 48;
+    pairThree[0] =(int) inputCoordinates[8] - ASCII_OFFSET;
+    pairThree[1] =(int) inputCoordinates[10] - ASCII_OFFSET;
 
-    /* Begin math nonsense
+    /* Begin math nonsense:
     First need to establish vectors,
     Need vectors to do dot product and thus find the shortest distance,
     It's going to be long and stupid and I'm going to hate every minute of it,
@@ -62,7 +69,7 @@ int main()
     {
         double x,y;
         x = pairThree[0] - pairTwo[0];
-        y = pairThree[1] - pairTwo[1];\
+        y = pairThree[1] - pairTwo[1];
         resultDistance = sqrt(x*x + y*y);
     }
     else if(AB_AC < 0)
