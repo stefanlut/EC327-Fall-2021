@@ -11,12 +11,13 @@ int main()
     cin >> inputChar;
     cout << "Offset (enter 0 to convert case): ";
     cin >> offsetNum;
-    if(isdigit(inputChar) && offsetNum == '0')
+
+    if(isdigit(inputChar) && offsetNum == '0') // if a number is input and the offset is 0
     {
         cout << "New charcter: " << newChar << endl;
         return 0;
     }
-    else if(!isdigit(inputChar) && offsetNum == 0)
+    else if(!isdigit(inputChar) && offsetNum == 0) // if a character is input and the offset is 0
     {
         if(isupper(inputChar)) newChar = tolower(inputChar);
         else newChar = toupper(inputChar);
@@ -25,9 +26,9 @@ int main()
         return 0;
     }
     
-    tempNum = (int) inputChar;
-    tempNum += offsetNum;
-    newChar = (char) tempNum;
+    tempNum = (int) inputChar; // casting the character to its corresponding ASCII value
+    tempNum += offsetNum; // adding the offset to the ASCII value
+    newChar = (char) tempNum; // casting from ASCII value back to a character
 
     cout << "New charcter: " << newChar << endl;
     return 0;

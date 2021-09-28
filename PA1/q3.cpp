@@ -13,13 +13,15 @@ int main()
     cout << "Enter two positive integers: " ;
     cin >> num1;
     cin >> num2;
-    sprintf(hex1,"%X", num1);
+    sprintf(hex1,"%X", num1); // Letting C++ do the work of converting to hexadecimal using sprintf
     cout << hex1 << endl;
     sprintf(hex2,"%X", num2);
     cout << hex2 << endl;
+
     int counter = 0;
     int hammingDistance = 0;
     int cutoff;
+
     if(strlen(hex1) > strlen(hex2))
     {
         cutoff = strlen(hex1);
@@ -28,9 +30,11 @@ int main()
     {
         cutoff = strlen(hex2);
     }
-    while(counter != cutoff )
+    while(counter != cutoff)
     {
-        if(hex1[counter] != hex2[counter]) hammingDistance++;
+        if(hex1[counter] != hex2[counter]) 
+            hammingDistance++;
+        
         
         counter++;
     }
