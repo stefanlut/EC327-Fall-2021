@@ -12,10 +12,17 @@ int main()
     {
         cout << "Please enter command code: ";
         cin >> entry;
-        if(isdigit(entry))
+        if(checkCode(entry))
+        {
+            if(entry == 'Q' || entry == 'q')
+                break;
+            //else if(entry == 'Q' || entry == 'q')
+        }
+        else
+        {
             cout << "Invalid Command Code" << endl;
-        else if(entry == 'Q' || entry == 'q')
-            break;
+        }
+        
     }
 
     return 0;
