@@ -1,3 +1,4 @@
+extern const int ENTRIES;
 void initialize();
 bool checkCode(char);
 void writeDataToFile(const char *);

@@ -1,8 +1,9 @@
 #include <iostream>
 #include "pa2Functions.h"
+extern const int ENTRIES;
 void initialize()
 {
-
+    printf("EC327: Introduction to Software Engineering\nFall 2021\nProgramming Assignment 2\nValue of Entries is: %d\n", ENTRIES);
 }
 bool checkCode(char)
 {
