@@ -21,7 +21,7 @@ int main()
 
     cout << "Enter three x,y coordinates:"<< endl;
     a = 0;
-    // Using another method for input because cin ignores whitespaces and is a PITA
+    // Using another method for input that I learned in another C course, because cin ignores whitespaces and is a PITA for me
     while((ch=getchar()) != '\n') 
     {
         inputCoordinates[a] = ch;
@@ -34,7 +34,7 @@ int main()
     /*
     Need to subtract 48 from all coordinates,
     because casting chars as ints will convert them to ASCII values.
-    Thus, need to take out the ASCII offset
+    Thus, need to take out the ASCII offset from each number.
     */
     
     pairOne[0] =(int) inputCoordinates[0] - ASCII_OFFSET;
@@ -65,14 +65,14 @@ int main()
     AB_BC = vectorAB[0] * vectorBC[0] + vectorAB[1] * vectorBC[1];
     AB_AC = vectorAB[0] * vectorAC[0] + vectorAB[1] * vectorAC[1];
 
-    if(AB_BC > 0)
+    if(AB_BC > 0) // If Point C is closer to point B than point A
     {
         double x,y;
         x = pairThree[0] - pairTwo[0];
         y = pairThree[1] - pairTwo[1];
         resultDistance = sqrt(x*x + y*y);
     }
-    else if(AB_AC < 0)
+    else if(AB_AC < 0) // If Point C is closer to point A than point B
     {
         double x,y;
         x = pairThree[0] - pairOne[0];

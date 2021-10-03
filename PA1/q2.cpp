@@ -39,7 +39,8 @@ int main()
         cout << "Computer chooses: Scissors" << endl;
         break;
     }
-    if(randInt == inputGuess) cout << "You tie!" << endl;
+    if(randInt == inputGuess) 
+        cout << "You tie!" << endl;
 
     if(randInt != inputGuess && randInt == 0) // If Computer chooses Rock
     {

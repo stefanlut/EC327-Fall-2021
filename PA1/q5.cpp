@@ -26,6 +26,7 @@ int main()
         return 0;
     }
     
+    // This section deals with characters when the offset isn't zero.
     tempNum = (int) inputChar; // casting the character to its corresponding ASCII value
     tempNum += offsetNum; // adding the offset to the ASCII value
     newChar = (char) tempNum; // casting from ASCII value back to a character
