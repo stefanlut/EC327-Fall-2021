@@ -38,12 +38,24 @@ void readDataFromFile(const char *)
 {
 
 }
-int factorial(int)
-{
-
+int factorial(int num)
+{   int result;
+    if(num == 0)
+        result = 1; // 0 factorial is equal to 1
+    else
+    {
+        for(int i = num; i > 1; i--)
+        {
+            result = i *(i-1);
+        }
+    }
+    return result;
 }
-int fibonacci(int)
-{
+int fibonacci(int num)
+{    
+    if (num <= 1)
+        return num;
+    return fibonacci(num - 1) + fibonacci(num - 2);
 
 }
 double findSqrtValue(double)
