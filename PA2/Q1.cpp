@@ -3,7 +3,8 @@
 extern const int ENTRIES = 10;
 #define ASCII_OFFSET 48
 using namespace std;
-
+// Use the following bash command to run this because I am tired of typing
+// g++ -c Q1.cpp pa2Functions.cpp ;g++ -o Q1 Q1.o pa2Functions.o ; rm Q1.o pa2Functions.o ; ./Q1
 int main()
 {
     char entry;
