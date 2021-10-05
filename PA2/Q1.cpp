@@ -17,9 +17,11 @@ int main()
         cin >> entry;
         if(checkCode(entry))
         {
+            int entryCounter = 0;
             if(entry == 'Q' || entry == 'q')
                 break;
             
+
             if(entry == 'B' || entry == 'b')
             {
                 cout << "Please enter command parameters: ";
@@ -48,9 +50,15 @@ int main()
                 cout << firstI << " ";
                 while (num < lastI)
                 {
-                    if(findNextOddValue(num) % 2 == 1)
-                        cout << findNextOddValue(num) <<" ";
-                    num++;
+                    
+                    if(findNextOddValue(num) < lastI && entryCounter < ENTRIES)
+                    {
+                        num = findNextOddValue(num);
+                        cout << num <<" ";
+                    }
+                    else
+                        break;
+                    entryCounter++;
                 }
                 cout << lastI << endl;
             }
@@ -59,21 +67,56 @@ int main()
                 cout << "Please enter command parameters: ";
                 cin >> firstI;
                 cin >> lastI;
+                
                 if(firstI > lastI)
                 {
                     cout << "No computation needed." << endl;
+                 
                     break;
                 }
                 int num = firstI;
                 cout << firstI << " ";
                 while (num < lastI)
                 {
-                    if(findNextEvenValue(num) % 2 == 0)
-                        cout << findNextEvenValue(num) <<" ";
-                    
-                    num++;
+                    if(findNextEvenValue(num) < lastI && entryCounter < ENTRIES)
+                    {
+                        num = findNextEvenValue(num);
+                        cout << num <<" ";
+
+                    }
+                    else 
+                        break;
+                    entryCounter++;
                 }
                 cout << lastI << endl;
+            }
+            else if(entry == 'R' || entry == 'r')
+            {
+                cout << "Please enter command parameters: ";
+                cin >> firstD;
+                cin >> lastD;
+                cin >> deltaD;
+                if(firstD > lastD || deltaD < 0)
+                {
+                    cout << "No computation needed." << endl;
+                 
+                    break;
+                }
+                double num = firstD;
+                double sqrtResult;
+                while (num < lastD)
+                {
+                    if(findSqrtValue(num) < lastD && entryCounter < ENTRIES)
+                    {
+                        sqrtResult = findSqrtValue(num);
+                        cout << sqrtResult << " ";
+                    }
+                    else
+                        break;
+                    entryCounter++;
+                    num += deltaD;
+                }
+                cout << lastD << endl;
             }
         }
         else

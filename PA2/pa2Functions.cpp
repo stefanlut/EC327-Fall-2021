@@ -62,9 +62,10 @@ int fibonacci(int num)
     return fibonacci(num - 1) + fibonacci(num - 2);
 
 }
-double findSqrtValue(double)
+double findSqrtValue(double num)
 {
     double result;
+    result = sqrt(num);
     return result;
 
 }
@@ -86,21 +87,24 @@ double areaSquare(double)
 int findNextOddValue(int num)
 {
     int result = num;
+    
     do
     {
         result++;
-    } while (result % 2 == 1);
+    } while (result %2 != 1);
     
-    return result - 1;
+    return result;
 }
 int findNextEvenValue(int num)
 {
     int result = num;
+    
     do
     {
         result++;
-    } while (result % 2 == 0);
-    return result - 1;
+    }while(result % 2 != 0);
+    
+    return result;
 }
 double findNyanCatValue(double num)
 {
