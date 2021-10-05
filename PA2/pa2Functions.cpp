@@ -1,5 +1,8 @@
 #include <iostream>
 #include "pa2Functions.h"
+#include <cmath>
+#include <ctime>
+#include <cstdlib>
 
 extern const int ENTRIES;
 using namespace std;
@@ -21,14 +24,14 @@ bool checkCode(char entry)
         else
             flag = false;
     }
-    if(isdigit(entry) || !flag)
+    if(isdigit(entry) || !flag) // If a number is entered, return false
      {
         
         return false;
      }
     else if(!isdigit(entry) && flag)
         return true;
-        
+    return flag;    
 }
 void writeDataToFile(const char *)
 {
@@ -40,13 +43,14 @@ void readDataFromFile(const char *)
 }
 int factorial(int num)
 {   int result;
-    if(num == 0)
-        result = 1; // 0 factorial is equal to 1
+    if(num == 0 || num == 1)
+        result = 1; // 0 factorial is equal to 1 and 1 factorial is equal to 1
     else
     {
+        result = num;
         for(int i = num; i > 1; i--)
         {
-            result = i *(i-1);
+            result = result * (i-1);
         }
     }
     return result;
@@ -60,37 +64,58 @@ int fibonacci(int num)
 }
 double findSqrtValue(double)
 {
+    double result;
+    return result;
 
 }
 double naturalLog(double)
 {
-
+    double result;
+    return result;
 }
 double areaCircle(double)
 {
-
+    double result;
+    return result;
 }
 double areaSquare(double)
 {
-
+    double result;
+    return result;
 }
-int findNextOddValue(int)
+int findNextOddValue(int num)
 {
-
+    int result = num;
+    do
+    {
+        result++;
+    } while (result % 2 == 1);
+    
+    return result - 1;
 }
-int findNextEvenValue(int)
+int findNextEvenValue(int num)
 {
-
+    int result = num;
+    do
+    {
+        result++;
+    } while (result % 2 == 0);
+    return result - 1;
 }
-double findNyanCatValue(double)
+double findNyanCatValue(double num)
 {
-
+    double result;
+    result = pow(4*num,num) + num + 10;
+    return result;
 }
 double doMath(double, char)
 {
-
+    double result;
+    return result;
 }
 double lucky(double)
 {
-    
+    srand(time(NULL));
+    double result;
+    return result;
 }
