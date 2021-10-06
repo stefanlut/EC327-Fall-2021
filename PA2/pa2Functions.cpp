@@ -27,10 +27,10 @@ bool checkCode(char entry)
     if(isdigit(entry) || !flag) // If a number is entered, return false
      {
         
-        return false;
+        return flag;
      }
     else if(!isdigit(entry) && flag)
-        return true;
+        return flag;
     return flag;    
 }
 void writeDataToFile(const char * filename)
