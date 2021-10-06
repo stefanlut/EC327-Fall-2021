@@ -33,11 +33,11 @@ bool checkCode(char entry)
         return true;
     return flag;    
 }
-void writeDataToFile(const char *)
+void writeDataToFile(const char * filename)
 {
 
 }
-void readDataFromFile(const char *)
+void readDataFromFile(const char * filename)
 {
 
 }
@@ -64,24 +64,23 @@ int fibonacci(int num)
 }
 double findSqrtValue(double num)
 {
-    double result;
-    result = sqrt(num);
+    double result = sqrt(num);
     return result;
-
+ 
 }
-double naturalLog(double)
+double naturalLog(double num)
 {
-    double result;
-    return result;
-}
-double areaCircle(double)
-{
-    double result;
+    double result = log(num);
     return result;
 }
-double areaSquare(double)
+double areaCircle(double radius)
 {
-    double result;
+    double result = radius * radius * M_PI;
+    return result;
+}
+double areaSquare(double length)
+{
+    double result = length * length;
     return result;
 }
 int findNextOddValue(int num)
@@ -112,12 +111,18 @@ double findNyanCatValue(double num)
     result = pow(4*num,num) + num + 10;
     return result;
 }
-double doMath(double, char)
+double doMath(double num, char entry)
 {
     double result;
+    if(entry == 'S' || entry == 's')
+        result = sin(num);
+    else if(entry == 'N' || entry == 'n')
+        result = cos(num);
+    else if(entry == 'X' || entry == 'x')
+        result = exp(num);
     return result;
 }
-double lucky(double)
+double lucky(double num)
 {
     srand(time(NULL));
     double result;
