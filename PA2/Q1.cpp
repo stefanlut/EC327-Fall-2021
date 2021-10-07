@@ -105,6 +105,7 @@ int main()
                 }
                 double num = firstD;
                 double sqrtResult;
+                cout << num << " ";
                 while (num < lastD)
                 {
                     if(findSqrtValue(num) < lastD && entryCounter < ENTRIES)
@@ -119,6 +120,135 @@ int main()
                 }
                 cout << lastD << endl;
             }
+            else if(entry == 'U' || entry == 'u')
+            {
+                cout << "Please enter command parameters: ";
+                cin >> firstD;
+                cin >> lastD;
+                cin >> deltaD;
+                if(firstD > lastD || deltaD < 0)
+                {
+                    cout << "No computation needed." << endl;
+                 
+                    break;
+                }
+                double num = firstD;
+                double squareResult;
+                cout << num << " ";
+                while(num < lastD)
+                {
+                    if(areaSquare(num) < lastD && entryCounter < ENTRIES)
+                    {
+                        squareResult = areaSquare(num);
+                        cout << squareResult << " ";
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    entryCounter++;
+                    num += deltaD;
+                    
+                }
+                cout << lastD << endl;
+            }
+            else if(entry == 'C' || entry == 'c')
+            {
+                cout << "Please enter command parameters: ";
+                cin >> firstD;
+                cin >> lastD;
+                cin >> deltaD;
+                if(firstD > lastD || deltaD < 0)
+                {
+                    cout << "No computation needed." << endl;
+                 
+                    break;
+                }
+                double num = firstD;
+                double circleResult;
+                cout << num << " ";
+                while(num < lastD)
+                {
+                    if(areaCircle(num) < lastD && entryCounter < ENTRIES)
+                    {
+                        circleResult = areaCircle(num);
+                        cout << circleResult << " ";
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    entryCounter++;
+                    num += deltaD;
+                    
+                }
+                cout << lastD << endl;
+            }
+            else if(entry == 'L' || entry == 'l')
+            {
+                cout << "Please enter command parameters: ";
+                cin >> firstD;
+                cin >> lastD;
+                cin >> deltaD;
+                if(firstD > lastD || deltaD < 0)
+                {
+                    cout << "No computation needed." << endl;
+                 
+                    break;
+                }
+                double num = firstD;
+                double logResult;
+                cout << num << " ";
+                while(num < lastD)
+                {
+                    if(naturalLog(num) < lastD && entryCounter < ENTRIES)
+                    {
+                        logResult = naturalLog(num);
+                        cout << logResult << " ";
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    entryCounter++;
+                    num += deltaD;
+                    
+                }
+                cout << lastD << endl;
+            }
+            else // if it's not anything else...
+            {
+                cout << "Please enter command parameters: ";
+                cin >> firstD;
+                cin >> lastD;
+                cin >> deltaD;
+                if(firstD > lastD || deltaD < 0)
+                {
+                    cout << "No computation needed." << endl;
+                 
+                    break;
+                }
+                double num = firstD;
+                double trigResult;
+                cout << num << " ";
+                while(num < lastD)
+                {
+                    if(doMath(num,entry) < lastD && entryCounter < ENTRIES)
+                    {
+                        trigResult = doMath(num,entry);
+                        cout << trigResult << " ";
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    entryCounter++;
+                    num += deltaD;
+                    
+                }
+                cout << lastD << endl;
+            }
+            
         }
         else
         {

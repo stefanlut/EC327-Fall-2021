@@ -3,6 +3,7 @@
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
+#define PI 3.14159
 
 extern const int ENTRIES;
 using namespace std;
@@ -42,18 +43,14 @@ void readDataFromFile(const char * filename)
 
 }
 int factorial(int num)
-{   int result;
-    if(num == 0 || num == 1)
-        result = 1; // 0 factorial is equal to 1 and 1 factorial is equal to 1
+{   
+    if(num == 0)
+        return 1; // 0 factorial is equal to 1 , this is the base case
     else
     {
-        result = num;
-        for(int i = num; i > 1; i--)
-        {
-            result = result * (i-1);
-        }
+        return num * factorial(num - 1);
     }
-    return result;
+    
 }
 int fibonacci(int num)
 {    
@@ -64,24 +61,21 @@ int fibonacci(int num)
 }
 double findSqrtValue(double num)
 {
-    double result = sqrt(num);
-    return result;
+    
+    return sqrt(num);
  
 }
 double naturalLog(double num)
 {
-    double result = log(num);
-    return result;
+    return log(num);
 }
 double areaCircle(double radius)
 {
-    double result = radius * radius * M_PI;
-    return result;
+    return radius * radius * PI;
 }
 double areaSquare(double length)
 {
-    double result = length * length;
-    return result;
+    return length * length;
 }
 int findNextOddValue(int num)
 {
@@ -107,20 +101,20 @@ int findNextEvenValue(int num)
 }
 double findNyanCatValue(double num)
 {
-    double result;
-    result = pow(4*num,num) + num + 10;
-    return result;
+    return  pow(4*num,num) + num + 10;
 }
 double doMath(double num, char entry)
 {
     double result;
     if(entry == 'S' || entry == 's')
-        result = sin(num);
+        return sin(num * PI/180);
     else if(entry == 'N' || entry == 'n')
-        result = cos(num);
+        return cos(num * PI/180);
     else if(entry == 'X' || entry == 'x')
-        result = exp(num);
-    return result;
+        return exp(num);
+    else 
+        return num;
+    
 }
 double lucky(double num)
 {
