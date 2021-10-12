@@ -216,7 +216,7 @@ int main()
                 }
                 cout << lastD << endl;
             }
-            else // if it's not anything else...
+            else if(entry == 'S' || entry == 's' || entry == 'N' || entry == 'n' || entry == 'X' || entry == 'x')
             {
                 cout << "Please enter command parameters: ";
                 cin >> firstD;
@@ -247,6 +247,11 @@ int main()
                     
                 }
                 cout << lastD << endl;
+            }
+            else if( entry == 'O' || entry == 'o')
+            {
+                char filename[32];
+                writeDataToFile(filename);
             }
             
         }
