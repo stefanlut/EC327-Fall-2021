@@ -5,8 +5,10 @@
 #include <cstdlib>
 #include <fstream>
 #include <cassert>
+#include <string>
 #define PI 3.14159
 #define esc 27
+#define ASCII_OFFSET 48
 extern const int ENTRIES;
 using namespace std;
 void initialize()
@@ -62,10 +64,52 @@ void writeDataToFile(const char * filename)
 void readDataFromFile(const char * filename)
 {
     string line;
+    char command;
+    char parameters[10];
+    int firstI,lastI,deltaI,num;
+    double firstD,lastD,deltaD;
     ifstream myfile (filename);
-    if(myfile.is_open())
+
+    if(!myfile.is_open())
     {
-        
+        cout << filename << "cannot be opened!" << endl;
+        assert(false);
+    }
+    while(getline(myfile,line))
+    {
+        if(line.length() == 1) // command code
+        {
+            command = line[0];  
+        }
+        else // parameters
+        {
+            for(int i = 0; i < line.length(); i++)
+            {
+                parameters[i] = line[i];
+            }
+            switch(command)
+            {
+                case 'F':
+                num = (int) parameters[0] - ASCII_OFFSET;
+                cout << num << " factorial is equal to " << factorial(num) << endl;
+                break;
+                case 'f':
+                num = (int) parameters[0] - ASCII_OFFSET;
+                cout << num << " factorial is equal to " << factorial(num) << endl;
+                break;
+                case 'B':
+                num = (int) parameters[0] - ASCII_OFFSET;
+                cout << "The Fibonacci number at element " << num << " is " << fibonacci(num) << endl;
+                break;
+                case 'b':
+                num = (int) parameters[0] - ASCII_OFFSET;
+                cout << "The Fibonacci number at element " << num << " is " << fibonacci(num) << endl;
+                break;
+                case 'D':
+                
+                break;
+            }
+        }
     }
 }
 int factorial(int num)

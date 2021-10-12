@@ -20,5 +20,10 @@ int main()
 }
 void printRhombus(int n)
 {
-
+    if (n == 1)
+    {
+        cout << n << endl;
+    }
+    else
+        printRhombus(n-1);
 }
