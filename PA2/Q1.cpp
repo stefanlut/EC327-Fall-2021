@@ -250,8 +250,17 @@ int main()
             }
             else if( entry == 'O' || entry == 'o')
             {
-                char filename[32];
+                char filename[64];
+                cout << "Enter a filename: ";
+                cin >> filename;
                 writeDataToFile(filename);
+            }
+            else if( entry == 'I' || entry == 'i')
+            {
+                char filename[64];
+                cout << "Enter a filename: ";
+                cin >> filename;
+                readDataFromFile(filename);
             }
             
         }

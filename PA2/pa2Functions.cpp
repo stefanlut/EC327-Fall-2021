@@ -3,8 +3,10 @@
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
+#include <fstream>
+#include <cassert>
 #define PI 3.14159
-
+#define esc 27
 extern const int ENTRIES;
 using namespace std;
 void initialize()
@@ -36,11 +38,35 @@ bool checkCode(char entry)
 }
 void writeDataToFile(const char * filename)
 {
+    char c;
+    ofstream ostr;
+    
+    ostr.open(filename, ios::out);
+    if(!ostr.is_open())
+    {
+        cout << filename << "cannot be opened!" << endl;
+        assert(false);
+    }
+    cout << "Begin typing file, hit escape and enter to end program" << endl << endl; 
+    while(!cin.eof())
+    {
+        cin.get(c);
+        if(c == '\e') break;
+        ostr << c;
+        cout << c;
+    }
+    cout << endl;
+    ostr.close();
 
 }
 void readDataFromFile(const char * filename)
 {
-
+    string line;
+    ifstream myfile (filename);
+    if(myfile.is_open())
+    {
+        
+    }
 }
 int factorial(int num)
 {   
