@@ -56,8 +56,6 @@ void printRhombus(int n)
     }
     else if (!flag)
     {
-        
-        
         if(n - 1 == 1) 
         {
             cout << setw(n * 2 - 1) << 1 << " ";
@@ -102,4 +100,3 @@ void printRhombus(int n)
     }
     
 }
-// n * 2 - 1 spaces
