@@ -56,21 +56,39 @@ void printRhombus(int n)
     }
     else if (!flag)
     {
-        cout << setw(n * 2 - 1) << 1;
         
-        if(n - 1 == 1) flag = true;
         
+        if(n - 1 == 1) 
+        {
+            cout << setw(n * 2 - 1) << 1 << " ";
+            int i = 2;
+            
+            while(i < counter + 1)
+            {
+                cout << i << " ";
+                i++;
+            }
+            
+            while(i > 0)
+            {
+                cout << i << " ";
+                i--;
+            }
+            counter++;
+            cout << endl;
+            flag = true;
+        }
         else 
         {
-            int i = 2;
-            do
+            cout << setw(n * 2 - 1) << 1 << " ";
+            int i = 1 * counter;
+            if(i == 1) i++;
+            while(i < counter + 1)
             {
-                
-                cout << " " << i;
+                cout << i << " ";
                 i++;
-            } while (i < counter + 1);
+            }
             
-            cout<< " ";
             while(i > 0)
             {
                 cout << i << " ";
