@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-
+int k = 2;
 void printRhombus(int n);
 int main()
 {
@@ -14,7 +14,7 @@ int main()
         cin >> n;
     }
     printRhombus(n);
-
+    cout << endl;
 
     return 0;
 }
@@ -23,9 +23,11 @@ void printRhombus(int n)
     if (n == 1)
     {
         cout << n << endl;
+        
     }
     else
     {
+        
         int i = 1;
         while(i < n)
         {
@@ -38,7 +40,15 @@ void printRhombus(int n)
             i--;
         }
         cout << endl;
+        do
+        {
+            cout << " ";
+            i++;
+        } while (i < k);
         
+        k +=2;
         printRhombus(n-1);
     }
+    
 }
+// n * 2 - 2 spaces

@@ -4,7 +4,7 @@
 using namespace std;
 int * DoubleAndReverse(int *list, int size)
 {
-
+    
 }
 int main()
 {
