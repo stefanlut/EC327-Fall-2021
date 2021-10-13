@@ -1,7 +1,8 @@
 #include <iostream>
-
+#include <iomanip>
 using namespace std;
-int k = 2;
+int k = 2,maximum, counter = 1;
+bool flag = false;
 void printRhombus(int n);
 int main()
 {
@@ -13,8 +14,12 @@ int main()
         cout << "Error, enter a number [1-9]: ";
         cin >> n;
     }
+    maximum = n;
+    cout << setw(maximum * 2 - 1);
+    printRhombus(1);
+    printRhombus(n-1);
+    n = maximum;
     printRhombus(n);
-    cout << endl;
 
     return 0;
 }
@@ -22,10 +27,10 @@ void printRhombus(int n)
 {
     if (n == 1)
     {
-        cout << n << endl;
+        cout << n<< endl;
         
     }
-    else
+    else if (flag)
     {
         
         int i = 1;
@@ -49,6 +54,34 @@ void printRhombus(int n)
         k +=2;
         printRhombus(n-1);
     }
+    else if (!flag)
+    {
+        cout << setw(n * 2 - 1) << 1;
+        
+        if(n - 1 == 1) flag = true;
+        
+        else 
+        {
+            int i = 2;
+            do
+            {
+                
+                cout << " " << i;
+                i++;
+            } while (i < counter + 1);
+            
+            cout<< " ";
+            while(i > 0)
+            {
+                cout << i << " ";
+                i--;
+            }
+            counter++;
+            cout << endl;
+            printRhombus(n-1);
+        }
+            
+    }
     
 }
-// n * 2 - 2 spaces
+// n * 2 - 1 spaces
