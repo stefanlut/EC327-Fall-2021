@@ -25,5 +25,20 @@ void printRhombus(int n)
         cout << n << endl;
     }
     else
+    {
+        int i = 1;
+        while(i < n)
+        {
+            cout << i << " ";
+            i++;
+        }
+        while(i > 0)
+        {
+            cout << i << " ";
+            i--;
+        }
+        cout << endl;
+        
         printRhombus(n-1);
+    }
 }
