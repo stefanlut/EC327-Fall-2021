@@ -14,12 +14,30 @@ int main()
         cout << "Error, enter a number [1-9]: ";
         cin >> n;
     }
-    maximum = n;
-    cout << setw(maximum * 2 - 1);
-    printRhombus(1);
-    printRhombus(n-1);
-    n = maximum;
-    printRhombus(n);
+    if(n == 1)
+    {
+        printRhombus(n);
+        return 0;
+    }
+    else if ( n == 2)
+    {
+        maximum = n;
+        cout << setw(maximum * 2 - 1);
+        printRhombus(1);
+        printRhombus(n);
+        printRhombus(n-1);
+        return 0;
+    }
+    else if ( n >= 3)
+    {
+        maximum = n;
+        cout << setw(maximum * 2 - 1);
+        printRhombus(1);
+        printRhombus(n-1);
+        n = maximum;
+        printRhombus(n);
+    }
+    
 
     return 0;
 }
