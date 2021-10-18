@@ -90,23 +90,18 @@ void readDataFromFile(const char * filename)
             switch(command)
             {
                 case 'F':
-                num = (int) parameters[0] - ASCII_OFFSET;
-                cout << num << " factorial is equal to " << factorial(num) << endl;
-                break;
                 case 'f':
                 num = (int) parameters[0] - ASCII_OFFSET;
                 cout << num << " factorial is equal to " << factorial(num) << endl;
                 break;
                 case 'B':
-                num = (int) parameters[0] - ASCII_OFFSET;
-                cout << "The Fibonacci number at element " << num << " is " << fibonacci(num) << endl;
-                break;
                 case 'b':
                 num = (int) parameters[0] - ASCII_OFFSET;
                 cout << "The Fibonacci number at element " << num << " is " << fibonacci(num) << endl;
                 break;
                 case 'D':
-                
+                case 'd':
+            
                 break;
             }
         }
