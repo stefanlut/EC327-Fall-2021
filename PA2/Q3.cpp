@@ -34,7 +34,6 @@ int main()
         cout << setw(maximum * 2 - 1);
         printRhombus(1);
         printRhombus(n-1);
-        n = maximum;
         printRhombus(n);
     }
     
@@ -43,12 +42,13 @@ int main()
 }
 void printRhombus(int n)
 {
-    if (n == 1)
+    if (n == 1 )
     {
-        cout << n<< endl;
+        cout << n << endl;
         
     }
-    else if (flag)
+    
+    else if (n != 1 && flag)
     {
         
         int i = 1;
@@ -72,7 +72,7 @@ void printRhombus(int n)
         k +=2;
         printRhombus(n-1);
     }
-    else if (!flag)
+    else if (!flag && n != 1)
     {
         if(n - 1 == 1) 
         {

@@ -6,6 +6,7 @@
 #include <fstream>
 #include <cassert>
 #include <string>
+#include <sstream>
 #define PI 3.14159
 #define esc 27
 #define ASCII_OFFSET 48
@@ -17,6 +18,7 @@ void initialize()
 }
 bool checkCode(char entry)
 {
+    
     char validCodes[33] = {'F','f','B','b','R','r','U','u','C','c','E','e','K','k','S','s','N','n','X','x','L','l','Y','y','D','d','I','i','O','o','Q','q','\0'};
     bool flag;
     for(int i = 0; i < 33;i++)
@@ -65,9 +67,8 @@ void readDataFromFile(const char * filename)
 {
     string line;
     char command;
-    char parameters[10];
     int firstI,lastI,deltaI,num;
-    double firstD,lastD,deltaD;
+    double firstD,lastD,deltaD,numD;
     ifstream myfile (filename);
 
     if(!myfile.is_open())
@@ -75,33 +76,182 @@ void readDataFromFile(const char * filename)
         cout << filename << "cannot be opened!" << endl;
         assert(false);
     }
+    int entryCounter = 0;
     while(getline(myfile,line))
     {
-        if(line.length() == 1) // command code
+        
+        if(line.length() == 1 && !isdigit(line[0])) // command code
         {
             command = line[0];  
         }
         else // parameters
         {
-            for(int i = 0; i < line.length(); i++)
-            {
-                parameters[i] = line[i];
-            }
+            istringstream parameters (line);
+            
             switch(command)
             {
                 case 'F':
                 case 'f':
-                num = (int) parameters[0] - ASCII_OFFSET;
+                parameters >> num;
                 cout << num << " factorial is equal to " << factorial(num) << endl;
                 break;
                 case 'B':
                 case 'b':
-                num = (int) parameters[0] - ASCII_OFFSET;
+                parameters >> num;
                 cout << "The Fibonacci number at element " << num << " is " << fibonacci(num) << endl;
                 break;
                 case 'D':
                 case 'd':
-            
+                parameters >> firstI >> lastI;
+                cout << firstI << " ";
+                num = firstI;
+                while (num < lastI)
+                {
+                    
+                    if(findNextOddValue(num) < lastI && entryCounter < ENTRIES)
+                    {
+                        num = findNextOddValue(num);
+                        cout << num <<" ";
+                    }
+                    else
+                        break;
+                    entryCounter++;
+                }
+                cout << lastI << endl;
+                break;
+                case 'E':
+                case 'e':
+                parameters >> firstI >> lastI;
+                cout << firstI << " ";
+                num = firstI;
+                while (num < lastI)
+                {
+                    if(findNextEvenValue(num) < lastI && entryCounter < ENTRIES)
+                    {
+                        num = findNextEvenValue(num);
+                        cout << num <<" ";
+
+                    }
+                    else 
+                        break;
+                    entryCounter++;
+                }
+                cout << lastI << endl;
+                break;
+                case 'R':
+                case 'r':
+                parameters >> firstD >> lastD >> deltaD;
+                numD = firstD;
+                double sqrtResult;
+                cout << numD << " ";
+                while (numD < lastD)
+                {
+                    if(findSqrtValue(numD) < lastD && entryCounter < ENTRIES)
+                    {
+                        sqrtResult = findSqrtValue(numD);
+                        cout << sqrtResult << " ";
+                    }
+                    else
+                        break;
+                    entryCounter++;
+                    numD += deltaD;
+                }
+                cout << lastD << endl;
+                break;
+                case 'U':
+                case 'u':
+                parameters >> firstD >> lastD >> deltaD;
+                numD = firstD;
+                double squareResult;
+                while(numD < lastD)
+                {
+                    if(areaSquare(numD) < lastD && entryCounter < ENTRIES)
+                    {
+                        squareResult = areaSquare(numD);
+                        cout << squareResult << " ";
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    entryCounter++;
+                    numD += deltaD;
+                    
+                }
+                cout << lastD << endl;
+                break;
+                case 'C':
+                case 'c':
+                parameters >> firstD >> lastD >> deltaD;
+                numD = firstD;
+                double circleResult;
+                cout << numD << " ";
+                while(numD < lastD)
+                {
+                    if(areaCircle(numD) < lastD && entryCounter < ENTRIES)
+                    {
+                        circleResult = areaCircle(numD);
+                        cout << circleResult << " ";
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    entryCounter++;
+                    numD += deltaD;
+                    
+                }
+                cout << lastD << endl;
+                break;
+                case 'L':
+                case 'l':
+                parameters >> firstD >> lastD >> deltaD;
+                numD = firstD;
+                double logResult;
+                cout << numD << " ";
+                while(numD < lastD)
+                {
+                    if(naturalLog(numD) < lastD && entryCounter < ENTRIES)
+                    {
+                        logResult = naturalLog(numD);
+                        cout << logResult << " ";
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    entryCounter++;
+                    numD += deltaD;
+                    
+                }
+                cout << lastD << endl;
+                break;
+                case 'S':
+                case 's':
+                case 'N':
+                case 'n':
+                case 'X':
+                case 'x':
+                parameters >> firstD >> lastD >> deltaD;
+                numD = firstD;
+                double trigResult;
+                cout << numD << " ";
+                while(numD < lastD)
+                {
+                    if(doMath(numD,command) < lastD && entryCounter < ENTRIES)
+                    {
+                        trigResult = doMath(numD,command);
+                        cout << trigResult << " ";
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    entryCounter++;
+                    numD += deltaD;
+                    
+                }
+                cout << lastD << endl;
                 break;
             }
         }
