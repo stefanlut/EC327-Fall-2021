@@ -2,9 +2,11 @@
 #include "FileFunctions.h"
 #include "Statistics.h"
 using namespace std;
-int * DoubleAndReverse(int *list,int size)
+
+
+int * DoubleAndReverse(const int *list,int size)
 {
-    int *res;
+    int *res = new int[size * 2];
     
     for(int i = 0; i < size; i++)
     {
@@ -22,7 +24,7 @@ int main()
     char filename[10] = {'d','a','t','a','.','t','x','t','\0'};
     int size;
     int myArray[32];
-    int *newArray;
+    
     cout << "Writing file: " << filename << endl;
     WriteRandomData(10, 1000,filename);
 
@@ -31,7 +33,7 @@ int main()
     cout << "Array size is " << size << endl;
     
     cout << "Double and reversed is [";
-    newArray = DoubleAndReverse(myArray, size);
+    int *newArray = DoubleAndReverse(myArray, size);
     
     for(int i = 0; i < size * 2; i++)
     {
