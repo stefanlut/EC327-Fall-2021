@@ -34,11 +34,13 @@ int main()
     
     cout << "Double and reversed is [";
     int *newArray = DoubleAndReverse(myArray, size);
-    
-    for(int i = 0; i < size * 2; i++)
+    int newSize = size *2;
+    for(int i = 0; i < newSize; i++)
     {
         cout << " " << *(newArray + i);
     }
     cout << ']' << endl;
+    cout << "Median is: " << getMedian(newArray,newSize) << endl;
+    cout << "Largest is: " << getLargest(newArray,newSize) << endl;
     return 0;
 }
