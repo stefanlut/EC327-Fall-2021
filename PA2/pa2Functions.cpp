@@ -333,7 +333,7 @@ double doMath(double num, char entry)
 }
 double lucky(double seed)
 {
-    srand(seed);
+    srand(seed*time(NULL));
     double result = (double) rand();
     return  result;
 }
