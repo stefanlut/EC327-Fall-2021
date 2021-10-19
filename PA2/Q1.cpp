@@ -262,11 +262,18 @@ int main()
                 cin >> filename;
                 readDataFromFile(filename);
             }
+            else if (entry == 'k' || entry == 'K')
+            {
+                cout << "Please enter command parameters: ";
+                cin >> firstD;
+                cout << "Random number is: " << lucky(firstD) << endl;
+            }
             
         }
         else
         {
             cout << "Invalid Command Code" << endl;
+            
         }
         
     }

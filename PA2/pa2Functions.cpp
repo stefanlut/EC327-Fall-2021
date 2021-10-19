@@ -331,9 +331,9 @@ double doMath(double num, char entry)
         return num;
     
 }
-double lucky(double num)
+double lucky(double seed)
 {
-    srand(time(NULL));
-    double result;
-    return result;
+    srand(seed);
+    double result = (double) rand();
+    return  result;
 }
