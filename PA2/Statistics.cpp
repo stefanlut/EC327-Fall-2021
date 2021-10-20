@@ -1,11 +1,11 @@
 double getMedian(const int* array, const int size)
 {
     double medianNum;
-    if(size % 2 == 0) // even amount of elements
+    if(size % 2 == 0) // if array has even amount of elements
     {
         medianNum = (array[(size-1)/2] + array[size/2])/2.0;
     }
-    else // odd amount of elements
+    else // if array has odd amount of elements (unlikely as this is using the doubled array size)
     {
         medianNum = array[size/2];
     }
