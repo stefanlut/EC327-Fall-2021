@@ -57,7 +57,7 @@ void writeDataToFile(const char * filename)
         cin.get(c);
         if(c == '\e') break;
         ostr << c;
-        cout << c;
+        
     }
     cout << endl;
     ostr.close();
