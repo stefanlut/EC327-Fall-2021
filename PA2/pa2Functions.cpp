@@ -67,6 +67,7 @@ void readDataFromFile(const char * filename)
 {
     string line;
     char command;
+    char filename[64];
     int firstI,lastI,deltaI,num;
     double firstD,lastD,deltaD,numD;
     ifstream myfile (filename);
@@ -252,6 +253,10 @@ void readDataFromFile(const char * filename)
                     
                 }
                 cout << lastD << endl;
+                break;
+                case 'o':
+                case 'O':
+                filename = parameters;
                 break;
             }
         }

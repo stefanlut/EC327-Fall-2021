@@ -5,11 +5,10 @@ using namespace std;
 
 int main()
 {
-   int count = 7;
-   int *pcount = &count;
-   --*pcount+*pcount;
-   cout << count << endl;
-   cout << *pcount << endl;
-   cout << pcount << endl;
+   int **arr = new int*[3];
+   for(int i = 0; i < 3; i++)
+   {
+       arr[i] = new int[5];
+   }
     return 0;
 }
