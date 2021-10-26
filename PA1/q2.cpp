@@ -24,7 +24,7 @@ int main()
         cin >> inputGuess;
     }
     /* Computer chooses a random integer after user */
-    randInt = rand() % 2 + 0;
+    randInt = rand() % 3 + 0;
     switch(randInt)
     {
         case 0:

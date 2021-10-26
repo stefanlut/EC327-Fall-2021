@@ -25,10 +25,18 @@ int main()
     // There's a chance one string might be longer than the other, what do you do then?
     // Easy, compare the lengths and the while loop will be based on the longer string
     if(strlen(hex1) > strlen(hex2))
+    {
         cutoff = strlen(hex1);
+        hammingDistance += (cutoff - strlen(hex2));
+    }
+        
     else
+    {
         cutoff = strlen(hex2);
-
+        hammingDistance += (cutoff - strlen(hex1));
+    }
+        
+    
     while(counter != cutoff)
     {
         if(hex1[counter] != hex2[counter]) 
