@@ -1,6 +1,19 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
+class Vector2D{
+    public:
+        double x,y;
+        Vector2D(){
+            x = 0.0;
+            y = 0.0;
+        }
+        Vector2D(double in_x, double in_y){
+            x = in_x;
+            y = in_y;
+        }
+};
+
 class Point2D{
     public:
         double x, y;
@@ -12,9 +25,10 @@ class Point2D{
             x = in_x;
             y = in_y;
         }
-        double GetDistanceBetween(Point2D, Point2D);
+        static double GetDistanceBetween(Point2D, Point2D);
         
 };
+
 
 double Point2D::GetDistanceBetween(Point2D p1, Point2D p2) // Returns the Cartesian (ordinary) distance between p1 and p2.
 {
@@ -34,18 +48,7 @@ Point2D operator + (Point2D p, Vector2D v)
     return newPoint;
 }
 
-class Vector2D{
-    public:
-        double x,y;
-        Vector2D(){
-            x = 0.0;
-            y = 0.0;
-        }
-        Vector2D(double in_x, double in_y){
-            x = in_x;
-            y = in_y;
-        }
-};
+
 Vector2D operator - (Point2D p1, Point2D p2)
 {
     Vector2D newVector;
@@ -122,5 +125,9 @@ class GameObject{
 };
 int main()
 {
+    Point2D p1(5.0,10.0),p2(6.0,10.5);
+    Vector2D v1(1.0,1.0);
+    GameObject obj1('r');
+    cout << sizeof(obj1) << endl;
     return 0;
 }
