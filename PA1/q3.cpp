@@ -9,7 +9,7 @@ https://www.permadi.com/tutorial/numDecToHex/
 int main()
 {
     int num1,num2;
-    char hex1[32],hex2[32]; //32 character buffers, because why would you write numbers larger than that
+    char hex1[32],hex2[32],newHex1[32],newHex2[32]; //32 character buffers, because why would you write numbers larger than that
     cout << "Enter two positive integers: " ;
     cin >> num1;
     cin >> num2;
@@ -27,24 +27,46 @@ int main()
     if(strlen(hex1) > strlen(hex2))
     {
         cutoff = strlen(hex1);
-        hammingDistance += (cutoff - strlen(hex2));
+        newHex2[0] = '0';
+        for(int i = 0; i < strlen(hex2); i++)
+        {
+            newHex2[i+1] = hex2[i];
+        }
+        
+        while(counter != cutoff)
+        {
+            if (newHex2[counter] != hex1[counter]) hammingDistance++;
+            counter++;
+        }
     }
         
-    else
+    else if (strlen(hex1) < strlen(hex2))
     {
         cutoff = strlen(hex2);
-        hammingDistance += (cutoff - strlen(hex1));
+        newHex1[0] = '0';
+        for(int i = 0; i < strlen(hex1); i++)
+        {
+            newHex1[i+1] = hex1[i];
+        }
+        
+        while(counter != cutoff)
+        {
+            if (newHex1[counter] != hex2[counter]) hammingDistance++;
+            counter++;
+        }
+    }
+    else if(strlen(hex1) == strlen(hex2))
+    {
+        int length = strlen(hex1);
+        while(counter != length)
+        {
+            if (hex2[counter] != hex1[counter]) hammingDistance++;
+            counter++;
+        }
     }
         
     
-    while(counter != cutoff)
-    {
-        if(hex1[counter] != hex2[counter]) 
-            hammingDistance++;
-        
-        
-        counter++;
-    }
+    
     cout << "The hamming distance between " << num1 << " and " << num2 <<" in hex format is: " << hammingDistance << endl;
     
     return 0;
