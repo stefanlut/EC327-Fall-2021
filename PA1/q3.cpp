@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <cstdio>
 using namespace std;
 /* Q3
 Might have to reference concepts from this website if I had to do this numerically and not using C libraries:
