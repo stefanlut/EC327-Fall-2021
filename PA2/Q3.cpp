@@ -1,9 +1,10 @@
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
-int k = 2,maximum, counter = 1;
-bool flag = false;
-void printRhombus(int n);
+void printRhombus(int);
+int maximum,i = 1;
+bool flag = true;
 int main()
 {
     int n;
@@ -14,107 +15,75 @@ int main()
         cout << "Error, enter a number [1-9]: ";
         cin >> n;
     }
-    if(n == 1)
+    maximum = n;
+    if(maximum == 1)
     {
-        printRhombus(n);
+        printRhombus(maximum);
         return 0;
     }
-    else if ( n == 2)
+    else
     {
-        maximum = n;
-        cout << setw(maximum * 2 - 1);
-        printRhombus(1);
-        printRhombus(n);
-        printRhombus(n-1);
+        printRhombus(i);
+        i++;
+        printRhombus(i);
         return 0;
     }
-    else if ( n >= 3)
-    {
-        maximum = n;
-        cout << setw(maximum * 2 - 1);
-        printRhombus(1);
-        printRhombus(n-1);
-        printRhombus(n);
-    }
-    
-
-    return 0;
 }
 void printRhombus(int n)
 {
-    if (n == 1 )
+    if(n == 1)
     {
-        cout << n << endl;
-        
+        cout << setw(maximum * 2 - 1) << n << endl;
+        n++;
+        return;
     }
-    
-    else if (n != 1 && flag)
+    else
     {
-        
-        int i = 1;
-        while(i < n)
+        if(n < maximum && flag)
         {
-            cout << i << " ";
-            i++;
-        }
-        while(i > 0)
-        {
-            cout << i << " ";
-            i--;
-        }
-        cout << endl;
-        do
-        {
-            cout << " ";
-            i++;
-        } while (i < k);
-        
-        k +=2;
-        printRhombus(n-1);
-    }
-    else if (!flag && n != 1)
-    {
-        if(n - 1 == 1) 
-        {
-            cout << setw(n * 2 - 1) << 1 << " ";
-            int i = 2;
-            
-            while(i < counter + 1)
+            cout << setw((maximum-(n-1)) * 2 - 1);
+            for(int j = 1; j < n+1; j++)
             {
-                cout << i << " ";
-                i++;
+                cout << j << " ";
+            }
+            for(int j = n-1; j > 0; j--)
+            {
+                cout << j << " ";
             }
             
-            while(i > 0)
-            {
-                cout << i << " ";
-                i--;
-            }
-            counter++;
             cout << endl;
-            flag = true;
+            printRhombus(n+1);
         }
-        else 
+        else if(n == maximum && flag)
         {
-            cout << setw(n * 2 - 1) << 1 << " ";
-            int i = 1 * counter;
-            if(i == 1) i++;
-            while(i < counter + 1)
+            
+            for(int j = 1; j < maximum+1; j++)
             {
-                cout << i << " ";
-                i++;
+                cout << j << " ";
+            }
+            for(int j = maximum-1; j > 0; j--)
+            {
+                cout << j << " ";
+            }
+            cout << endl;
+            flag = false;
+            
+            printRhombus(n-1);
+        }
+        else if(n < maximum && !flag)
+        {
+            cout << setw((maximum-(n-1)) * 2 - 1);
+            for(int j = 1; j < n+1; j++)
+            {
+                cout << j << " ";
+            }
+            for(int j = n-1; j > 0; j--)
+            {
+                cout << j << " ";
             }
             
-            while(i > 0)
-            {
-                cout << i << " ";
-                i--;
-            }
-            counter++;
             cout << endl;
             printRhombus(n-1);
         }
-            
     }
-    
 }
