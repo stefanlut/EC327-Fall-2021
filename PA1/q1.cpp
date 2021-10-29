@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
+#include <cmath>
+#include <stdlib.h>
 #define ASCII_OFFSET 48
 
 using namespace std;
