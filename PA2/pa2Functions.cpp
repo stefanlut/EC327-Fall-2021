@@ -7,6 +7,7 @@
 #include <cassert>
 #include <string>
 #include <sstream>
+#include <stdio.h>
 #define PI 3.14159
 #define esc 27
 #define ASCII_OFFSET 48
@@ -16,7 +17,7 @@ void initialize()
 {
     printf("EC327: Introduction to Software Engineering\nFall 2021\nProgramming Assignment 2\nValue of Entries is: %d\n", ENTRIES);
 }
-bool checkCode(char entry)
+bool checkCode(char entry) // Checks character code against array of valid codes, returns false if doesn't match up
 {
     
     char validCodes[33] = {'F','f','B','b','R','r','U','u','C','c','E','e','K','k','S','s','N','n','X','x','L','l','Y','y','D','d','I','i','O','o','Q','q','\0'};
@@ -67,7 +68,7 @@ void readDataFromFile(const char * filename)
 {
     string line;
     char command;
-    char filename[64];
+    char filenameInput[64];
     int firstI,lastI,deltaI,num;
     double firstD,lastD,deltaD,numD;
     ifstream myfile (filename);
@@ -256,7 +257,12 @@ void readDataFromFile(const char * filename)
                 break;
                 case 'o':
                 case 'O':
-                filename = parameters;
+                strcpy(filenameInput,line.c_str());
+                writeDataToFile(filenameInput);
+                break;
+                case 'q':
+                case 'Q':
+                return;
                 break;
             }
         }

@@ -4,9 +4,10 @@
 using namespace std;
 
 
-int * DoubleAndReverse(const int *list,int size)
+int * DoubleAndReverse(const int *list,int &size)
 {
-    int *res = new int[size * 2];
+    size *= 2;
+    int *res = new int[size]; 
     
     for(int i = 0; i < size; i++)
     {
@@ -34,13 +35,13 @@ int main()
     
     cout << "Double and reversed is [";
     int *newArray = DoubleAndReverse(myArray, size);
-    int newSize = size *2;
-    for(int i = 0; i < newSize; i++)
+   
+    for(int i = 0; i < size; i++)
     {
         cout << " " << *(newArray + i);
     }
     cout << ']' << endl;
-    cout << "Median is: " << getMedian(newArray,newSize) << endl;
-    cout << "Largest is: " << getLargest(newArray,newSize) << endl;
+    cout << "Median is: " << getMedian(newArray,size) << endl;
+    cout << "Largest is: " << getLargest(newArray,size) << endl;
     return 0;
 }
