@@ -6,7 +6,7 @@ using namespace std;
 
 int * DoubleAndReverse(const int *list,int &size)
 {
-    size *= 2;
+    
     int *res = new int[size]; 
     
     for(int i = 0; i < size; i++)
@@ -18,6 +18,7 @@ int * DoubleAndReverse(const int *list,int &size)
     {
         res[i+size] =*(list + (size - i - 1));
     }
+    size *= 2;
     return res;
 }
 int main()
