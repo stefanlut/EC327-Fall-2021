@@ -6,6 +6,7 @@
 #include <fstream>
 #include <cassert>
 #include <string>
+#include <cstring>
 #include <sstream>
 #include <stdio.h>
 #define PI 3.14159
